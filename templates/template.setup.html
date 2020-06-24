@@ -1,0 +1,59 @@
+{{define "template.setup"}}
+{{template "template.header" .}} 
+{{template "setup.sidebar" .}}
+<div class="col-md-9">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Setup/Reset</div>
+        <div class="panel-body">
+            <div class="pnl">
+                <span class="subheader">Setup Database</span>
+            <p>
+                Click on the Create / Reset Database button to create or reset your database. 
+                make sure to correct the mysql credentials in /config/config.json
+            </p>
+
+                <form id="myform">
+                    <input type="hidden" name="act" value="cr">
+                    <button type="button" class="btn btn-primary" id="action">Create / Reset</button>
+                </form>
+                <br>
+            {{.error}}
+            <div class="msg-area" style="width:350px"></div>
+        </div>
+        </div>    
+        </div>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $("#info").delay(3000).fadeOut();
+        });
+
+        function pushAlert(message, cssClass){
+            var html = '';
+                html += '<div class="alert '+cssClass+' alert-dismissable">';
+                html += '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> ';
+                html += message+'</div>';
+            return html
+
+        }
+        $("#action").on('click',function(){
+            var data = $("#myform").serialize();
+            var url = "{{.weburl}}setupaction";
+            var cssclass = "";
+
+            $.post(url, data)
+            .done(function(res){
+                $.each(res[0],function(key, value){
+                    if (value.status == "0"){
+                        cssclass = "alert-danger";
+                    }else{
+                        cssclass = "alert-success";
+                    }
+                    html = pushAlert(value.message, cssclass);
+                    $(".msg-area").append(html)
+                })
+            })
+        })
+
+    </script>
+{{template "template.footer"}} {{ end }}

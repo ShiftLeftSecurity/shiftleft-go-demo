@@ -1,0 +1,77 @@
+{{ define "template.sidebar" }}
+<div class="row">
+    <div class="col-sm-4 col-md-3 sidebar">
+        <div class="nav-side-menu">
+            <div class="brand"><img src="{{.weburl}}public/img/go-icon.ico">Vulnerabilities</div>
+            <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+
+            <div class="menu-list">
+
+                <ul id="menu-content" class="menu-content collapse out">
+                    <li>
+                        <a href="{{.weburl}}index">
+                            <i class="fa fa-dashboard fa-lg"></i> Home
+                        </a>
+                    </li>
+
+                    <li>
+                            <a href="{{.weburl}}setup">
+                                <i class="glyphicon glyphicon-cog fa-lg"></i> Setup/Reset
+                            </a>
+                    </li>
+                    <li style="height:35px"></li>
+                    <li data-toggle="collapse" data-target="#sqli" class="collapsed">
+                        <a href="#"><i class="fa fa-bug fa-lg"></i> SQL Injection <span class="arrow"></span></a>
+                    </li>
+                    <ul class="sub-menu collapse" id="sqli">
+                        <li><a href="{{.weburl}}sqli1">SQLI 1</a></li>
+                        <li><a href="{{.weburl}}sqli2?uid={{.uid}}">SQLI 2</a></li>
+                    </ul>
+
+
+                    <li data-toggle="collapse" data-target="#xss" class="collapsed">
+                        <a href="#"><i class="fa fa-bug fa-lg"></i> Cross Site Scripting <span class="arrow"></span></a>
+                    </li>
+                    <ul class="sub-menu collapse" id="xss">
+                        <li><a href="{{.weburl}}xss1">XSS 1</a></li>
+                        <li><a href="{{.weburl}}xss2?uid={{.uid}}">XSS 2</a></li>
+                    </ul>
+
+                    <li data-toggle="collapse" data-target="#idor" class="collapsed">
+                            <a href="#"><i class="fa fa-bug fa-lg"></i> IDOR <span class="arrow"></span></a>
+                        </li>
+                        <ul class="sub-menu collapse" id="idor">
+                            <li><a href="{{.weburl}}idor1">IDOR 1</a></li>
+                            <li><a href="{{.weburl}}idor2">IDOR 2</a></li>
+                        </ul>
+
+                   <!--  <li data-toggle="collapse" data-target="#xxe" class="collapsed">
+                        <a href="#"><i class="fa fa-bug fa-lg"></i> XXE <span class="arrow"></span></a>
+                    </li>
+                    <ul class="sub-menu collapse" id="xxe">
+                        <li><a href="#">XXE 1</a></li>
+                        <li><a href="#">XXE 2</a></li>
+                    </ul> -->
+                    <li>
+                            <a href="{{.weburl}}csa">
+                                <i class="fa fa-bug fa-lg"></i> Client Side Auth
+                            </a>
+                        </li>
+                    <li style="height:35px">
+                    </li>
+                    <li>
+                            <a href="{{.weburl}}setting">
+                                <i class="glyphicon glyphicon-cog fa-lg"></i> Setting
+                            </a>
+                        </li>
+                    <li>
+                            <a href="{{.weburl}}logout">
+                                <i class="fa fa-sign-out fa-lg"></i> Logout
+                            </a>
+                        </li>
+                        
+                </ul>
+            </div>
+        </div>
+    </div>
+    {{ end }}
