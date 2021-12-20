@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
+	_ "github.com/gen2brain/go-unarr"
 	"github.com/julienschmidt/httprouter"
 
 	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgo/setting"
@@ -14,6 +15,7 @@ import (
 	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgo/util/middleware"
 	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgo/vulnerability/csa"
 	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgo/vulnerability/idor"
+	pathTraversal "github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgo/vulnerability/path-traversal"
 	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgo/vulnerability/sqli"
 	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgo/vulnerability/xss"
 )
@@ -53,6 +55,7 @@ func main() {
 	xss := xss.New()
 	idor := idor.New()
 	csa := csa.New()
+	pathTraversal := pathTraversal.New()
 	setup := setup.New()
 	setting := setting.New()
 
@@ -65,6 +68,7 @@ func main() {
 	xss.SetRouter(router)
 	idor.SetRouter(router)
 	csa.SetRouter(router)
+	pathTraversal.SetRouter(router)
 	setup.SetRouter(router)
 	setting.SetRouter(router)
 
