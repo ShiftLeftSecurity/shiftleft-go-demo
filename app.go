@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	_ "github.com/gen2brain/go-unarr"
+	_ "github.com/tidwall/gjson"
 	"github.com/julienschmidt/httprouter"
 
 	"github.com/ShiftLeftSecurity/shiftleft-go-demo/setting"
