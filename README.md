@@ -5,7 +5,7 @@ GoVWA (Go Vulnerable Web Application) is a web application developed to help the
 This was formerly known as <https://github.com/0c34/govwa>, package name
 `govwa`, however this doesn't sit well with how Go code is commonly
 organised, therefore it was renamed here to
-`github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgo`,
+`github.com/ShiftLeftSecurity/shiftleft-go-demo`,
 which is also where we store it on GitHub.
 
 # How To Install GoVWA

@@ -4,20 +4,20 @@ import (
 	"fmt"
 	"net/http"
 
-	_ "github.com/tidwall/gjson"
+	_ "github.com/gen2brain/go-unarr"
 	"github.com/julienschmidt/httprouter"
 
-	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgohttprouter/setting"
-	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgohttprouter/setup"
-	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgohttprouter/user"
-	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgohttprouter/util"
-	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgohttprouter/util/config"
-	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgohttprouter/util/middleware"
-	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgohttprouter/vulnerability/csa"
-	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgohttprouter/vulnerability/idor"
-	pathTraversal "github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgohttprouter/vulnerability/path-traversal"
-	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgohttprouter/vulnerability/sqli"
-	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgohttprouter/vulnerability/xss"
+	"github.com/ShiftLeftSecurity/shiftleft-go-demo/setting"
+	"github.com/ShiftLeftSecurity/shiftleft-go-demo/setup"
+	"github.com/ShiftLeftSecurity/shiftleft-go-demo/user"
+	"github.com/ShiftLeftSecurity/shiftleft-go-demo/util"
+	"github.com/ShiftLeftSecurity/shiftleft-go-demo/util/config"
+	"github.com/ShiftLeftSecurity/shiftleft-go-demo/util/middleware"
+	"github.com/ShiftLeftSecurity/shiftleft-go-demo/vulnerability/csa"
+	"github.com/ShiftLeftSecurity/shiftleft-go-demo/vulnerability/idor"
+	pathTraversal "github.com/ShiftLeftSecurity/shiftleft-go-demo/vulnerability/path-traversal"
+	"github.com/ShiftLeftSecurity/shiftleft-go-demo/vulnerability/sqli"
+	"github.com/ShiftLeftSecurity/shiftleft-go-demo/vulnerability/xss"
 )
 
 const (
