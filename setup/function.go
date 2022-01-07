@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"log"
 
-	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgo/util/database"
+	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgohttprouter/util/database"
 )
 
 const (

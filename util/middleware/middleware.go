@@ -7,8 +7,8 @@ import(
 	"regexp"
 	"net/http"
 
-	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgo/util/config"
-	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgo/user/session"
+	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgohttprouter/util/config"
+	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgohttprouter/user/session"
 	"github.com/julienschmidt/httprouter"
 )
 

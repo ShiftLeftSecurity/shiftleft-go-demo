@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgo/util/config"
+	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgohttprouter/util/config"
 )
 
 func Redirect(w http.ResponseWriter, r *http.Request, location string, code int){

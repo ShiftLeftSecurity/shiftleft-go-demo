@@ -4,20 +4,20 @@ import (
 	"fmt"
 	"net/http"
 
-	_ "github.com/gen2brain/go-unarr"
+	_ "github.com/tidwall/gjson"
 	"github.com/julienschmidt/httprouter"
 
-	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgo/setting"
-	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgo/setup"
-	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgo/user"
-	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgo/util"
-	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgo/util/config"
-	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgo/util/middleware"
-	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgo/vulnerability/csa"
-	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgo/vulnerability/idor"
-	pathTraversal "github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgo/vulnerability/path-traversal"
-	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgo/vulnerability/sqli"
-	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgo/vulnerability/xss"
+	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgohttprouter/setting"
+	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgohttprouter/setup"
+	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgohttprouter/user"
+	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgohttprouter/util"
+	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgohttprouter/util/config"
+	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgohttprouter/util/middleware"
+	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgohttprouter/vulnerability/csa"
+	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgohttprouter/vulnerability/idor"
+	pathTraversal "github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgohttprouter/vulnerability/path-traversal"
+	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgohttprouter/vulnerability/sqli"
+	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgohttprouter/vulnerability/xss"
 )
 
 const (

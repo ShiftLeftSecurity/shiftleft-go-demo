@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgo/user/session"
-	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgo/util"
-	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgo/util/config"
-	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgo/util/database"
-	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgo/util/middleware"
+	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgohttprouter/user/session"
+	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgohttprouter/util"
+	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgohttprouter/util/config"
+	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgohttprouter/util/database"
+	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgohttprouter/util/middleware"
 
 	"github.com/julienschmidt/httprouter"
 )
