@@ -9,11 +9,11 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgo/user/session"
-	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgo/util"
-	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgo/util/config"
-	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgo/util/database"
-	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgo/util/middleware"
+	"github.com/ShiftLeftSecurity/shiftleft-go-demo/user/session"
+	"github.com/ShiftLeftSecurity/shiftleft-go-demo/util"
+	"github.com/ShiftLeftSecurity/shiftleft-go-demo/util/config"
+	"github.com/ShiftLeftSecurity/shiftleft-go-demo/util/database"
+	"github.com/ShiftLeftSecurity/shiftleft-go-demo/util/middleware"
 
 	"github.com/julienschmidt/httprouter"
 )

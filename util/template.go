@@ -6,7 +6,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgo/user/session"
+	"github.com/ShiftLeftSecurity/shiftleft-go-demo/user/session"
 )
 
 func SafeRender(w http.ResponseWriter, r *http.Request, name string, data map[string]interface{}) {

@@ -3,7 +3,7 @@ package database
 import (
 	"database/sql"
 	"fmt"
-	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgo/util/config"
+	"github.com/ShiftLeftSecurity/shiftleft-go-demo/util/config"
 	"log"
 
 	_ "github.com/go-sql-driver/mysql"

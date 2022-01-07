@@ -2,7 +2,7 @@ package session
 
 import (
 	"fmt"
-	"github.com/ShiftLeftSecurity/Helloshiftleft-internal/helloshiftleftgo/util/config"
+	"github.com/ShiftLeftSecurity/shiftleft-go-demo/util/config"
 	"log"
 	"net/http"
 
