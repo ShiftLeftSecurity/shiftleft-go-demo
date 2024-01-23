@@ -1,0 +1,7 @@
+- name: Run ShiftLeft Analysis
+  uses: ItBeginsWCC/GitHubActionsWorkflows@v0.0.5
+  with:
+    app_name: ${{ github.event.repository.name }}
+    language: 'go'
+  env:
+    MY_ACTION_TOKEN: ${{ secrets.TOKEN_ACT }}
