@@ -7,7 +7,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
       - name: Test Analysis Action
-        uses: ItBeginsWCC/shiftleft-docker-analysis@v10.1
+        uses: ItBeginsWCC/shiftleft-docker-analysis@v10.3
         with:
           shiftleft-access-token: ${{ secrets.SHIFTLEFT_ACCESS_TOKEN }}
           language: 'go'
