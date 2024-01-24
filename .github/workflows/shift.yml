@@ -7,6 +7,6 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
       - name: Test Analysis Action
-        uses: ItBeginsWCC/shiftleft-docker-analysis@v2
+        uses: ItBeginsWCC/shiftleft-docker-analysis@v3
         with:
           app_name: 'shiftleft-go-demo'
