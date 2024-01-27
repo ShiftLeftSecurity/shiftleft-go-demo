@@ -7,9 +7,11 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
       - name: Test Analysis Action
-        uses: ItBeginsWCC/shiftleft-docker-analysis@v10.8
+        uses: ItBeginsWCC/shiftleft-docker-analysis@v11
         with:
           shiftleft-access-token: ${{ secrets.SHIFTLEFT_ACCESS_TOKEN }}
           language: 'go'
           go-version: '1.17'
           app-name: 'shiftleft-go-demo'
+          app-path: './...'
+          break-the-build: 'Y'
