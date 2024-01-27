@@ -18,15 +18,16 @@ jobs:
   Build-Rules:
     runs-on: ubuntu-latest
     permissions: write-all
+    needs: test-action
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Break The Build Analysis Action
-        uses: ItBeginsWCC/Break-The-Build@v1
+        uses: ItBeginsWCC/Break-The-Build@v2
         secrets: inherit
-        needs: test-action
         with:
           shiftleft-access-token: ${{ secrets.SHIFTLEFT_ACCESS_TOKEN }}
           app-name: 'shiftleft-go-demo'
           break-the-build: 'Y'
+          github-toke: ${{ secrets.GITHUB_TOKEN }}
