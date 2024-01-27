@@ -4,7 +4,7 @@
 name: qwiet.ai
 
 on:
-  pull_request:
+  # pull_request:
   workflow_dispatch:
 
 jobs:
