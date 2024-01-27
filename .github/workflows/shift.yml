@@ -26,7 +26,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Break The Build Analysis Action
-        uses: ItBeginsWCC/Break-The-Build@v3.1
+        uses: ItBeginsWCC/Break-The-Build@v3.2
         with:
           shiftleft-access-token: ${{ secrets.SHIFTLEFT_ACCESS_TOKEN }}
           app-name: 'shiftleft-go-demo'
