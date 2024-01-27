@@ -16,16 +16,24 @@ jobs:
           app-path: './...'
 
   Build-Rules:
-    runs-on: ubuntu-latest
-    permissions: write-all
+    name: Break The Build Analysis Action
+    uses: ItBeginsWCC/Break-The-Build@v1
+    secrets: inherit
     needs: test-action
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+    with:
+      shiftleft-access-token: ${{ secrets.SHIFTLEFT_ACCESS_TOKEN }}
+      app-name: 'shiftleft-go-demo'
+      break-the-build: 'Y'
+    # runs-on: ubuntu-latest
+    # permissions: write-all
+    # needs: test-action
+    # steps:
+    #   - name: Checkout Repository
+    #     uses: actions/checkout@v4
 
-      - name: Break The Build Analysis Action
-        uses: ItBeginsWCC/Break-The-Build@v1
-        with:
-          shiftleft-access-token: ${{ secrets.SHIFTLEFT_ACCESS_TOKEN }}
-          app-name: 'shiftleft-go-demo'
-          break-the-build: 'Y'
+    #   - name: Break The Build Analysis Action
+    #     uses: ItBeginsWCC/Break-The-Build@v1
+    #     with:
+    #       shiftleft-access-token: ${{ secrets.SHIFTLEFT_ACCESS_TOKEN }}
+    #       app-name: 'shiftleft-go-demo'
+    #       break-the-build: 'Y'
