@@ -1,9 +1,9 @@
 name: Example Workflow
 
 on:
-  push:
+  # push:
   workflow_dispatch:
-  pull_request:
+  # pull_request:
 
 jobs:
   my_custom_action_job:
