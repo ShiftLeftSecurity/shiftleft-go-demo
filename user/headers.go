@@ -53,7 +53,6 @@ func generateToken() {
 	// Instantiate TokenGenerator and HTTPClient
 	tokenGenerator := TokenGenerator{SecretKey: "your_secret_key"}
 	httpClient := HTTPClient{BaseURL: "https://api.example.com"}
-	tokenGeneratorOne := TokenGenerator{SecretKey: "your__key"}
 	// Generate a token
 	token := tokenGenerator.GenerateToken()
 
