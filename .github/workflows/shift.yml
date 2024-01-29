@@ -34,7 +34,7 @@ jobs:
       - name: Show yml file
         run: |
           find -name shiftleft.yml
-          cat shiftleft.yml
+          cat ./.btb/shiftleft.yml
       # - name: Copy ShiftLeft Config
       #   run: |
       #     # Copy the shiftleft.yml file to the root directory
