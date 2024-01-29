@@ -25,9 +25,15 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+      
+      - name: Download ShiftLeft Configuration
+        uses: actions/download-artifact@v2
+        with:
+          name: shiftleft-config
+          path: ${{ github.workspace }}
 
       - name: Break The Build Analysis Action
-        uses: ItBeginsWCC/Break-The-Build@v3.5
+        uses: ItBeginsWCC/Break-The-Build@v3.6
         with:
           shiftleft-access-token: ${{ secrets.SHIFTLEFT_ACCESS_TOKEN }}
           app-name: 'shiftleft-go-demo'
