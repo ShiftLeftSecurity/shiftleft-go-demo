@@ -39,15 +39,13 @@ jobs:
       #   run: |
       #     # Copy the shiftleft.yml file to the root directory
       #     cp shiftleft.yml $GITHUB_WORKSPACE/
-
-      - name: Download ShiftLeft Config
-        uses: actions/download-artifact@v2
-        with:
-          name: shiftleft-config
-          path: $GITHUB_WORKSPACE/
-        
+      # - name: Download ShiftLeft Config
+      #   uses: actions/download-artifact@v2
+      #   with:
+      #     name: shiftleft-config
+      #     path: $GITHUB_WORKSPACE/
       - name: Break The Build Analysis Action
-        uses: ItBeginsWCC/Break-The-Build@v3.7
+        uses: ItBeginsWCC/Break-The-Build@v3.10
         with:
           shiftleft-access-token: ${{ secrets.SHIFTLEFT_ACCESS_TOKEN }}
           app-name: 'shiftleft-go-demo'
