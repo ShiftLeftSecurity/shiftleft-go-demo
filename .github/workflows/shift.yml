@@ -26,11 +26,19 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
       
-      - name: Download ShiftLeft Configuration
-        uses: actions/download-artifact@v2
+      - name: Checkout Test Repository
+        uses: actions/checkout@v2
         with:
-          name: shiftleft-config
-          path: ${{ github.workspace }}
+          repository: ItBeginsWCC/Break-The-Build
+
+      - name: Show yml file
+        run: |
+          cat shiftleft.yml
+
+      - name: Copy ShiftLeft Config
+        run: |
+          # Copy the shiftleft.yml file to the root directory
+          cp shiftleft.yml $GITHUB_WORKSPACE/
 
       - name: Break The Build Analysis Action
         uses: ItBeginsWCC/Break-The-Build@v3.6
