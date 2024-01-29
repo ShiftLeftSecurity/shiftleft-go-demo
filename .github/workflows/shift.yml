@@ -33,13 +33,19 @@ jobs:
 
       - name: Show yml file
         run: |
+          find -name shiftleft.yml
           cat shiftleft.yml
+      # - name: Copy ShiftLeft Config
+      #   run: |
+      #     # Copy the shiftleft.yml file to the root directory
+      #     cp shiftleft.yml $GITHUB_WORKSPACE/
 
-      - name: Copy ShiftLeft Config
-        run: |
-          # Copy the shiftleft.yml file to the root directory
-          cp shiftleft.yml $GITHUB_WORKSPACE/
-
+      - name: Download ShiftLeft Config
+        uses: actions/download-artifact@v2
+        with:
+          name: shiftleft-config
+          path: $GITHUB_WORKSPACE/
+        
       - name: Break The Build Analysis Action
         uses: ItBeginsWCC/Break-The-Build@v3.6
         with:
