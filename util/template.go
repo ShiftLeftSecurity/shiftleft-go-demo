@@ -6,6 +6,8 @@ import (
 	"log"
 	"net/http"
 
+	"gopkg.in/yaml.v3"
+
 	"github.com/ShiftLeftSecurity/shiftleft-go-demo/user/session"
 )
 
@@ -31,6 +33,19 @@ func RenderAsJson(w http.ResponseWriter, data ...interface{}) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
+	w.Write(b)
+}
+
+// RenderAsYAML writes data to w as YAML.
+// Note: this only *marshals* our own response struct; it has nothing to do
+// with CVE-2022-28948, which is triggered by yaml.Unmarshal on untrusted input.
+func RenderAsYAML(w http.ResponseWriter, data interface{}) {
+	b, err := yaml.Marshal(data)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	w.Header().Set("Content-Type", "application/yaml")
 	w.Write(b)
 }
 
