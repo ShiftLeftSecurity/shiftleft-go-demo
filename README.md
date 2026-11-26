@@ -100,3 +100,48 @@ Disclaimer: The code behaves somewhat weird by breaking if you change the number
 No real functionality. Except a green/red bar popping up depending on the response from the backend. If you use a proxy to tamper with the response you get a green bar regardless of your input.
 
 The correct OTP is a value that has the MD5 hash of `a587cd6bf1e49d2c3928d1f8b86f248b`.
+
+
+# Vulnerable dependencies
+
+Two known CVEs in third-party dependencies exist in the project. Both will
+usually be flagged as "reachable", but only one of them is actually exploitable.
+
+## How to triage the findings
+
+The quickest way to decide is to compare the **function named in the CVE
+description** with the **function at the sink of the reported data flow**.
+
+### CVE-2025-30204 (golang-jwt/jwt)
+
+- CVE description: `jwt.ParseUnverified` (called internally by `jwt.Parse`) splits
+  the token on `.` without bounding the number of segments. A header with a huge
+  number of periods causes excessive memory allocation (DoS).
+- Reported data flow (`setting/setting.go`, `jwtAuth`):
+
+  ```
+  r.Header.Get("Authorization") / r.Cookie("token")   <- attacker-controlled source
+      -> raw
+      -> jwt.Parse(raw, ...)                           <- sink
+  ```
+
+- Verification: the sink `jwt.Parse` is the vulnerable function from the advisory
+  (or calls it directly), and the tainted value is the exact input the advisory
+  says must be malicious (the token string). Any unauthenticated client can send
+  `Authorization: Bearer ....[many dots]` to `/setting` or `/setlevel`.
+  The finding can be confirmed in less than a minute.
+
+### CVE-2022-28948 (yaml.v3)
+
+- CVE description: `yaml.Unmarshal` panics when given malformed/untrusted YAML
+  input, resulting in DoS.
+- Reported data flow (`vulnerability/idor/idor.go`, `idor1ActionHandler`) ends at:
+
+  ```
+  r.FormValue("uid") -> res.Message -> yaml.Marshal(res)   <- sink
+  ```
+
+- Dismissal: the sink is `yaml.Marshal`, **not** `yaml.Unmarshal`. The code only
+  serializes its own `DataResponse` struct and never parses YAML from
+  user-controlled data. Since the function named in the CVE is never
+  called, the finding can quickly be dismissed as "vulnerable function not used".

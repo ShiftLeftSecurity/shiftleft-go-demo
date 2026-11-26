@@ -9,6 +9,7 @@ import (
 	"net/http"
 	"strconv"
 
+	"github.com/ShiftLeftSecurity/shiftleft-go-demo/setting"
 	"github.com/ShiftLeftSecurity/shiftleft-go-demo/user/session"
 	"github.com/ShiftLeftSecurity/shiftleft-go-demo/util"
 	"github.com/ShiftLeftSecurity/shiftleft-go-demo/util/config"
@@ -97,6 +98,9 @@ func loginAction(w http.ResponseWriter, r *http.Request, _ httprouter.Params) bo
 
 		s.SetSession(w, r, sessionData)
 		util.SetCookie(w, "Uid", strconv.Itoa(uData.id)) //save user_id to cookie
+		if err := setting.IssueToken(w, uData.uname); err != nil {
+			log.Println(err.Error())
+		}
 		log.Println("Login Success")
 		return true
 	} else {
